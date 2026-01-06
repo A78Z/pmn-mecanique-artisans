@@ -1,0 +1,631 @@
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════════════════════════
+   PALETTE PMN - Couleurs inspirées du logo Projet Mobilier National
+   ═══════════════════════════════════════════════════════════════ */
+:root {
+  /* Couleurs principales PMN */
+  --pmn-green-dark: #1a5a3a;
+  /* Vert profond institutionnel */
+  --pmn-green: #228b4d;
+  /* Vert PMN principal */
+  --pmn-green-light: #2ea85f;
+  /* Vert clair */
+  --pmn-yellow: #d4a418;
+  /* Jaune doré */
+  --pmn-yellow-light: #f0c850;
+  /* Jaune clair */
+
+  /* Couleurs de fond */
+  --background: #f8faf9;
+  /* Fond légèrement teinté vert */
+  --background-gradient-start: #e8f5e9;
+  /* Vert très clair */
+  --background-gradient-end: #f5f5dc;
+  /* Beige/jaune très léger */
+
+  /* Couleurs de texte */
+  --foreground: #1a1a1a;
+  --text-muted: #5a5a5a;
+
+  /* Espacement responsive */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 0.75rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FOND PREMIUM AVEC DÉGRADÉ
+   ═══════════════════════════════════════════════════════════════ */
+body {
+  background: linear-gradient(135deg,
+      var(--background-gradient-start) 0%,
+      #f0f7f2 25%,
+      #fafbf9 50%,
+      #fffef8 75%,
+      var(--background-gradient-end) 100%);
+  background-attachment: fixed;
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), 'Inter', Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  /* Prevent horizontal scroll */
+  overflow-x: hidden;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   EN-TÊTE INSTITUTIONNEL - MOBILE FIRST
+   ═══════════════════════════════════════════════════════════════ */
+.institutional-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Mobile: compact padding */
+  padding: 1.25rem 1rem;
+  background: linear-gradient(180deg, #ffffff 0%, #fafbfc 100%);
+  border-bottom: 2px solid #e5e7eb;
+  border-radius: 12px 12px 0 0;
+}
+
+/* Tablet */
+@media (min-width: 640px) {
+  .institutional-header {
+    padding: 1.5rem 1.5rem;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .institutional-header {
+    padding: 2rem 2rem;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CARTE FORMULAIRE PREMIUM - RESPONSIVE
+   ═══════════════════════════════════════════════════════════════ */
+.premium-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  /* Mobile: subtle rounded corners */
+  border-radius: 12px;
+  box-shadow:
+    0 4px 6px -1px rgba(26, 90, 58, 0.05),
+    0 10px 15px -3px rgba(26, 90, 58, 0.08),
+    0 20px 25px -5px rgba(26, 90, 58, 0.06);
+  border: 1px solid rgba(34, 139, 77, 0.1);
+  /* Mobile: compact margins */
+  margin: 0 0.5rem;
+}
+
+/* Tablet */
+@media (min-width: 640px) {
+  .premium-card {
+    border-radius: 16px;
+    margin: 0;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .premium-card {
+    border-radius: 20px;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SECTIONS DU FORMULAIRE - MOBILE FIRST
+   ═══════════════════════════════════════════════════════════════ */
+.form-section {
+  background: linear-gradient(135deg, #f8faf9 0%, #ffffff 100%);
+  border: 1px solid rgba(34, 139, 77, 0.15);
+  border-radius: 10px;
+  /* Mobile: compact padding */
+  padding: 1rem;
+}
+
+/* Tablet */
+@media (min-width: 640px) {
+  .form-section {
+    padding: 1.5rem;
+    border-radius: 12px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .form-section {
+    padding: 2rem;
+  }
+}
+
+.form-section-header {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.625rem;
+  border-bottom: 2px solid transparent;
+  border-image: linear-gradient(90deg, var(--pmn-green) 0%, var(--pmn-yellow) 100%) 1;
+}
+
+/* Tablet+ */
+@media (min-width: 640px) {
+  .form-section-header {
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+  }
+}
+
+.form-section-icon {
+  /* Mobile: slightly smaller */
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--pmn-green) 0%, var(--pmn-green-light) 100%);
+  border-radius: 8px;
+  color: white;
+  box-shadow: 0 2px 8px rgba(34, 139, 77, 0.25);
+  flex-shrink: 0;
+}
+
+/* Tablet+ */
+@media (min-width: 640px) {
+  .form-section-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+  }
+}
+
+.form-section-title {
+  /* Mobile: readable size */
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--pmn-green-dark);
+  letter-spacing: -0.025em;
+}
+
+/* Tablet+ */
+@media (min-width: 640px) {
+  .form-section-title {
+    font-size: 1.25rem;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CHAMPS DE FORMULAIRE PREMIUM - OPTIMISÉS TACTILE
+   ═══════════════════════════════════════════════════════════════ */
+.premium-input {
+  width: 100%;
+  /* Mobile: larger padding for touch */
+  padding: 0.9rem 1rem;
+  padding-left: 2.75rem;
+  border: 1.5px solid #dce5e0;
+  border-radius: 10px;
+  background: white;
+  /* 16px minimum to prevent iOS zoom */
+  font-size: 1rem;
+  color: var(--foreground);
+  transition: all 0.2s ease;
+  /* Minimum height for touch targets */
+  min-height: 48px;
+}
+
+.premium-input:focus {
+  outline: none;
+  border-color: var(--pmn-green);
+  box-shadow: 0 0 0 3px rgba(34, 139, 77, 0.12);
+}
+
+.premium-input:hover:not(:focus) {
+  border-color: #b8cfc0;
+}
+
+.premium-input::placeholder {
+  color: #9ca3af;
+}
+
+/* Tablet+ */
+@media (min-width: 640px) {
+  .premium-input {
+    padding: 0.875rem 1rem;
+    padding-left: 2.75rem;
+    font-size: 0.95rem;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   BOUTON PREMIUM PMN - RESPONSIVE
+   ═══════════════════════════════════════════════════════════════ */
+.premium-button {
+  background: linear-gradient(135deg, var(--pmn-green) 0%, var(--pmn-green-dark) 100%);
+  color: white;
+  font-weight: 700;
+  /* Mobile: full width, good touch target */
+  font-size: 1rem;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow:
+    0 4px 14px rgba(34, 139, 77, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  position: relative;
+  overflow: hidden;
+  /* Full width on mobile */
+  width: 100%;
+  min-height: 52px;
+}
+
+.premium-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+.premium-button:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 6px 20px rgba(34, 139, 77, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  background: linear-gradient(135deg, var(--pmn-green-light) 0%, var(--pmn-green) 100%);
+}
+
+.premium-button:active {
+  transform: translateY(0);
+}
+
+/* Focus visible for accessibility */
+.premium-button:focus-visible {
+  outline: 3px solid var(--pmn-yellow);
+  outline-offset: 2px;
+}
+
+/* Tablet+ */
+@media (min-width: 640px) {
+  .premium-button {
+    width: auto;
+    font-size: 1.1rem;
+    padding: 1rem 3rem;
+    border-radius: 12px;
+  }
+}
+
+/* Disabled state */
+.premium-button:disabled {
+  background: linear-gradient(135deg, #9ca3af 0%, #6b7280 100%);
+  cursor: not-allowed;
+  opacity: 0.7;
+  box-shadow: 0 2px 8px rgba(107, 114, 128, 0.25);
+  transform: none;
+}
+
+.premium-button:disabled:hover {
+  transform: none;
+  box-shadow: 0 2px 8px rgba(107, 114, 128, 0.25);
+  background: linear-gradient(135deg, #9ca3af 0%, #6b7280 100%);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   BANNIÈRE D'ERREUR FORMULAIRE
+   ═══════════════════════════════════════════════════════════════ */
+.error-banner {
+  background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+  border: 1px solid #fca5a5;
+  border-radius: 10px;
+  padding: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  animation: slideDown 0.3s ease-out;
+}
+
+.error-banner-icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  color: #dc2626;
+}
+
+.error-banner-content {
+  flex: 1;
+}
+
+.error-banner-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #991b1b;
+  margin-bottom: 0.25rem;
+}
+
+.error-banner-message {
+  font-size: 0.85rem;
+  color: #b91c1c;
+  line-height: 1.4;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Tablet+ */
+@media (min-width: 640px) {
+  .error-banner {
+    padding: 1rem 1.25rem;
+    border-radius: 12px;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SOUS-SECTIONS (Questions, Checkboxes)
+   ═══════════════════════════════════════════════════════════════ */
+.premium-subsection {
+  background: white;
+  border: 1px solid rgba(34, 139, 77, 0.1);
+  border-radius: 8px;
+  /* Mobile: compact padding */
+  padding: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+/* Tablet+ */
+@media (min-width: 640px) {
+  .premium-subsection {
+    padding: 1.25rem;
+    border-radius: 10px;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   TITRE DU FORMULAIRE - RESPONSIVE
+   ═══════════════════════════════════════════════════════════════ */
+.form-title {
+  /* Mobile: readable size */
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--foreground);
+  line-height: 1.3;
+}
+
+/* Small tablets */
+@media (min-width: 480px) {
+  .form-title {
+    font-size: 1.375rem;
+  }
+}
+
+/* Tablet */
+@media (min-width: 640px) {
+  .form-title {
+    font-size: 1.5rem;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .form-title {
+    font-size: 1.75rem;
+  }
+}
+
+.form-title-highlight {
+  color: var(--pmn-green);
+  background: linear-gradient(90deg, var(--pmn-green) 0%, var(--pmn-green-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════════════════════════════ */
+.premium-footer {
+  text-align: center;
+  padding-top: 1.25rem;
+  margin-top: 0.75rem;
+  border-top: 1px solid rgba(34, 139, 77, 0.1);
+}
+
+.premium-footer p {
+  color: var(--text-muted);
+  font-size: 0.7rem;
+}
+
+/* Tablet+ */
+@media (min-width: 640px) {
+  .premium-footer {
+    padding-top: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .premium-footer p {
+    font-size: 0.75rem;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   STYLES INPUTS RESPONSIVE - TOUCH OPTIMIZED
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Base input styles for touch devices */
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="number"],
+input[type="date"],
+select {
+  /* 16px prevents iOS zoom on focus */
+  font-size: 16px !important;
+  min-height: 48px;
+}
+
+/* Tablet+: can use smaller text */
+@media (min-width: 640px) {
+
+  input[type="text"],
+  input[type="tel"],
+  input[type="email"],
+  input[type="number"],
+  input[type="date"],
+  select {
+    font-size: 15px !important;
+    min-height: 44px;
+  }
+}
+
+/* Checkbox & Radio - larger touch targets */
+input[type="checkbox"],
+input[type="radio"] {
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  min-height: 20px;
+  cursor: pointer;
+}
+
+/* Tablet+: slightly smaller */
+@media (min-width: 640px) {
+
+  input[type="checkbox"],
+  input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
+    min-height: 18px;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   LABELS - ACCESSIBILITY
+   ═══════════════════════════════════════════════════════════════ */
+label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 0.375rem;
+}
+
+/* Tablet+ */
+@media (min-width: 640px) {
+  label {
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   GRILLES RESPONSIVE UTILITIES
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Form grid - single column mobile, two columns tablet+ */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .form-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .form-grid {
+    gap: 1.5rem;
+  }
+}
+
+/* Full width span on grid */
+.form-grid-full {
+  grid-column: 1 / -1;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FOCUS STATES - ACCESSIBILITY
+   ═══════════════════════════════════════════════════════════════ */
+*:focus-visible {
+  outline: 2px solid var(--pmn-green);
+  outline-offset: 2px;
+}
+
+/* Remove focus outline for mouse users */
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SCROLLBAR STYLING
+   ═══════════════════════════════════════════════════════════════ */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--pmn-green-light);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--pmn-green);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   ANIMATIONS - REDUCED MOTION SUPPORT
+   ═══════════════════════════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   PRINT STYLES
+   ═══════════════════════════════════════════════════════════════ */
+@media print {
+  body {
+    background: white;
+  }
+
+  .premium-card {
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+
+  .premium-button {
+    display: none;
+  }
+}
