@@ -144,14 +144,21 @@ export default function Home() {
         {/* En-tête institutionnel officiel */}
         <InstitutionalHeader />
 
-        {/* Titre du formulaire - Responsive spacing */}
-        <div className="text-center space-y-2 sm:space-y-3 py-3 sm:py-4 px-2 sm:px-0">
-          <h1 className="form-title">
-            FICHE DE FORMATION : <br className="sm:hidden" />
-            <span className="form-title-highlight">MAÎTRISE DES PROCÉDURES DE PASSATION DES MARCHÉS PUBLICS</span>
+        {/* Titre du formulaire - Design institutionnel ARKAY */}
+        <div className="form-title-container">
+          <h1 className="form-title-main">
+            <span className="form-title-primary">
+              Formulaire de demande de financement
+            </span>
+            <span className="form-title-secondary">
+              dans le cadre du Projet des Ateliers de Référence
+            </span>
+            <span className="form-title-accent">
+              Keur Artisans Yi (ARKAY)
+            </span>
           </h1>
-          <p className="text-gray-600 text-xs sm:text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
-            Bienvenue sur le portail d'inscription du Projet Mobilier National.
+          <p className="form-subtitle">
+            Portail officiel de candidature — Projet du Mobilier National
           </p>
         </div>
 
