@@ -515,8 +515,10 @@ body {
   color: var(--pmn-green-dark);
   line-height: 1.3;
   letter-spacing: 0.02em;
-  padding-top: 0.25rem;
+  padding-top: 1rem;
+  margin-top: 0.5rem;
   position: relative;
+  display: block;
 }
 
 /* Séparateur décoratif subtil */
@@ -781,5 +783,106 @@ label {
 
   .premium-button {
     display: none;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   LOGIN PAGE STYLES - Super Admin Authentication
+   ═══════════════════════════════════════════════════════════════ */
+
+.login-input {
+  width: 100%;
+  padding: 0.875rem 1rem 0.875rem 3rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  background: #f9fafb;
+  font-size: 1rem;
+  color: #1f2937;
+  transition: all 0.2s ease;
+  min-height: 52px;
+}
+
+.login-input:focus {
+  outline: none;
+  border-color: var(--pmn-green);
+  background: white;
+  box-shadow: 0 0 0 4px rgba(34, 139, 77, 0.1);
+}
+
+.login-input:hover:not(:focus) {
+  border-color: #d1d5db;
+  background: white;
+}
+
+.login-input::placeholder {
+  color: #9ca3af;
+}
+
+.login-input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.login-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem 1.5rem;
+  background: linear-gradient(135deg, var(--pmn-green) 0%, var(--pmn-green-dark) 100%);
+  color: white;
+  font-weight: 700;
+  font-size: 1rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-height: 52px;
+  box-shadow: 0 4px 14px rgba(34, 139, 77, 0.3);
+}
+
+.login-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(34, 139, 77, 0.4);
+  background: linear-gradient(135deg, var(--pmn-green-light) 0%, var(--pmn-green) 100%);
+}
+
+.login-button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.login-button:disabled {
+  background: linear-gradient(135deg, #9ca3af 0%, #6b7280 100%);
+  cursor: not-allowed;
+  box-shadow: 0 2px 8px rgba(107, 114, 128, 0.25);
+  transform: none;
+}
+
+.login-button:focus-visible {
+  outline: 3px solid var(--pmn-yellow);
+  outline-offset: 2px;
+}
+
+.login-error {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+  border: 1px solid #fecaca;
+  border-radius: 12px;
+  animation: loginErrorSlide 0.3s ease-out;
+}
+
+@keyframes loginErrorSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

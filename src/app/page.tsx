@@ -150,11 +150,11 @@ export default function Home() {
             <span className="form-title-primary">
               Formulaire de demande de financement
             </span>
-            <span className="form-title-secondary">
-              dans le cadre du Projet des Ateliers de Référence
+            <span className="form-title-accent">
+              dans le cadre du Projet des <br />Ateliers  de Référence Keur Artisans Yi (ARKAY)
             </span>
             <span className="form-title-accent">
-              Keur Artisans Yi (ARKAY)
+
             </span>
           </h1>
           <p className="form-subtitle">

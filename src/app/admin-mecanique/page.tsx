@@ -3,7 +3,7 @@
 import React, { useState, useMemo, useCallback, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowLeft, Download, FileText, Users, Loader2, AlertCircle, RefreshCw } from 'lucide-react';
+import { ArrowLeft, Download, FileText, Users, Loader2, AlertCircle, RefreshCw, LogOut } from 'lucide-react';
 import { jsPDF } from 'jspdf';
 
 import { StatsCards } from '@/components/admin/StatsCards';
@@ -15,6 +15,7 @@ import { DeleteConfirmModal } from '@/components/admin/DeleteConfirmModal';
 
 // Import server actions for Back4App integration
 import { getArtisans, deleteArtisan, ArtisanRecord, ArtisanFilters as ServerFilters } from '@/actions/artisanActions';
+import { useAuth } from '@/contexts/AuthContext';
 
 // Corps de métier disponibles (for filters)
 const CORPS_METIERS = [
@@ -301,6 +302,40 @@ function generateListPDF(artisans: Artisan[], activeFilters: FilterState) {
     doc.save(filename);
 }
 
+// ═══════════════════════════════════════════════════════════════
+// LOGOUT BUTTON COMPONENT
+// ═══════════════════════════════════════════════════════════════
+
+function LogoutButton() {
+    const { logout, user } = useAuth();
+    const [isLoggingOut, setIsLoggingOut] = useState(false);
+
+    const handleLogout = async () => {
+        setIsLoggingOut(true);
+        try {
+            await logout();
+            // Redirect handled by AuthGuard in layout
+            window.location.href = '/admin-mecanique/login';
+        } catch (error) {
+            console.error('Logout error:', error);
+        } finally {
+            setIsLoggingOut(false);
+        }
+    };
+
+    return (
+        <button
+            onClick={handleLogout}
+            disabled={isLoggingOut}
+            className="flex items-center gap-2 px-3 py-2 text-sm font-medium text-red-700 bg-red-50 border border-red-200 rounded-lg hover:bg-red-100 transition-colors disabled:opacity-50"
+            title={`Déconnexion${user ? ` (${user.email})` : ''}`}
+        >
+            <LogOut className={`w-4 h-4 ${isLoggingOut ? 'animate-pulse' : ''}`} />
+            <span className="hidden sm:inline">Déconnexion</span>
+        </button>
+    );
+}
+
 export default function AdminMecaniquePage() {
     // ═══════════════════════════════════════════════════════════════
     // STATE - Connected to Back4App
@@ -567,6 +602,10 @@ export default function AdminMecaniquePage() {
                                 <FileText className="w-4 h-4" />
                                 <span className="hidden sm:inline">Exporter PDF</span>
                             </button>
+                            {/* Separator */}
+                            <div className="h-6 w-px bg-gray-300 mx-1 hidden sm:block" />
+                            {/* Logout button */}
+                            <LogoutButton />
                         </div>
                     </div>
                 </div>
